@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const SearchParams = () => {
     const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
@@ -11,19 +11,21 @@ const SearchParams = () => {
             <form>
                 <label htmlFor="location">
                     Location
-                    <input id="location"
+                    <input
+                        id="location"
                         value={location}
                         placeholder="Location"
-                        onChange={(e) => setLocation(e.target.value)} />
+                        onChange={(e) => setLocation(e.target.value)}
+                    />
                 </label>
-                <label htmlFor='animal'>
+                <label htmlFor="animal">
                     Animal
                     <select
-                        id='animal'
+                        id="animal"
                         value={animal}
                         onChange={(e) => {
                             setAnimal(e.target.value);
-                            setBreed('');
+                            setBreed("");
                         }}
                         onBlur={(e) => {
                             setAnimal(e.target.value);
@@ -36,22 +38,40 @@ const SearchParams = () => {
                                 <option key={animal} value={animal}>
                                     {animal}
                                 </option>
+                            );
+                        })}
+                    </select>
+                </label>
+                <label
+                    htmlFor="breed">
+                    Breed
+                    <select
+                        id="breed"
+                        value={breed}
+                        onChange={(e) => {
+                            setBreed(e.target.value);
+                        }}
+                        onBlur={(e) => {
+                            setBreed(e.target.value);
+                        }}
+                    >
+                        {/* option tag is added so that 
+                        nothing couldn't be selected as default, 
+                        to be blank by default */}
+                        <option />
+                        {breeds.map((breed) => {
+                            return (
+                                <option key={breed} value={breed}>
+                                    {breed}
+                                </option>
                             )
                         })}
                     </select>
                 </label>
-                <label htmlFor='breed'>
-                    Breed
-                    <select
-                        id='breed' >
-                        value={breed}
-                        onChange={ }
-                    </select>
-                </label>
                 <button>Submit</button>
             </form>
-        </div >
-    )
-}
+        </div>
+    );
+};
 
 export default SearchParams;
