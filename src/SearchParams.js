@@ -29,6 +29,8 @@ const SearchParams = () => {
                     Location
                     <input
                         id="location"
+                        // {/*autofocus is linting*/}
+                        autoFocus
                         value={location}
                         placeholder="Location"
                         onChange={(e) => setLocation(e.target.value)}
